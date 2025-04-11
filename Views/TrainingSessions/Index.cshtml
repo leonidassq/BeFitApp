@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BeFitApp.Models.TrainingSession>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sesje treningowe</h1>
+
+<p>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a asp-action="Create">Dodaj nowy</a>
+    }
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndTime)
+            </td>
+                <td>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id">Zmień</a>
+                        <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                    }
+                </td>
+
+        </tr>
+}
+    </tbody>
+</table>

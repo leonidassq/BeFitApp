@@ -1,0 +1,43 @@
+﻿@model BeFitApp.Models.SessionExercise
+
+@{
+    ViewData["Title"] = "Usuń ćwiczenie";
+}
+
+<h1>Usuń wykonane ćwiczenie</h1>
+
+<h4>Czy na pewno chcesz to zrobić?</h4>
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-3">Sesja treningowa</dt>
+    <dd class="col-sm-9">@Model.TrainingSession?.StartTime.ToString("dd.MM.yyyy HH:mm")</dd>
+
+    <dt class="col-sm-3">Typ ćwiczenia</dt>
+    <dd class="col-sm-9">@Model.ExerciseType?.Name</dd>
+
+    <dt class="col-sm-3">Obciążenie (kg)</dt>
+    <dd class="col-sm-9">@Model.Weight</dd>
+
+    <dt class="col-sm-3">Liczba serii</dt>
+    <dd class="col-sm-9">@Model.Sets</dd>
+
+    <dt class="col-sm-3">Liczba powtórzeń</dt>
+    <dd class="col-sm-9">@Model.Repetitions</dd>
+</dl>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group mt-3">
+            <input type="submit" value="Usuń" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+        </div>
+    </form>
+}
+else
+{
+    <a asp-action="Index" class="btn btn-secondary">Powrót</a>
+}
+
