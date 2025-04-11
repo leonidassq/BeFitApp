@@ -61,7 +61,7 @@ Aplikacja do zarządzania sesjami treningowymi, typami ćwiczeń oraz statystyka
 
 - Dostęp do sesji, ćwiczeń i statystyk możliwy tylko po zalogowaniu.
 - Każdy użytkownik widzi tylko swoje dane.
-- Administrator ma pełny dostęp do typów ćwiczeń.
+- Tylko administrator ma pełny dostęp do typów ćwiczeń.
 
 ## 📄 Licencja
 
