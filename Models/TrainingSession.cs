@@ -15,7 +15,7 @@ namespace BeFitApp.Models
         [Display(Name = "Czas zakończenia")]
         public DateTime EndTime { get; set; }
 
-        // NIE dodawaj [Required] – ważne!
+        
         public string? UserId { get; set; }
 
         [Display(Name = "Użytkownik")]

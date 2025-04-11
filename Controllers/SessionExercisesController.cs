@@ -77,8 +77,7 @@ namespace BeFitApp.Controllers
 
 
         // POST: SessionExercises/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
@@ -129,7 +128,7 @@ namespace BeFitApp.Controllers
                 return NotFound();
             }
 
-            // Pobierz tylko sesje należące do aktualnego użytkownika
+            
             var sessions = await _context.TrainingSessions
                 .Where(s => s.UserId == userId)
                 .ToListAsync();
@@ -141,7 +140,7 @@ namespace BeFitApp.Controllers
             ViewData["TrainingSessionId"] = new SelectList(
                 sessions,
                 "Id",
-                "StartTime", // albo inna właściwość, np. tytuł
+                "StartTime", 
                 selectedSessionId
             );
 
@@ -161,8 +160,7 @@ namespace BeFitApp.Controllers
 
 
         // POST: SessionExercises/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
